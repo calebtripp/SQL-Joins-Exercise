@@ -1,19 +1,23 @@
 /* joins: select all the computers from the products table:
 using the products table and the categories table, return the product name and the category name */
- SELECT *
- FROM Products p
- JOIN Categories c
- ON p.CategoryID = c.CategoryID; 
- -- need to now return the two columns. . name new then alter? easier way?
- -- Select Product Name, Category Name FROM NEWTABLENAME;
-
+SELECT p.Name as ProductName, c.Name as CategoryName
+FROM Products as p
+JOIN Categories as c 
+WHERE c.Name = "Computers";
 
 /* joins: find all product names, product prices, and products ratings that have a rating of 5 */
- SELECT *
- FROM Products p
- JOIN Reviews r
- ON p.ProductID = r.ProductID; 
- -- need to now return the three columns.. name new then alter? easier way?
+SELECT p.Name as ProductName, p.Price as ProductPrice, r.Rating as ReviewRating
+FROM Products as p
+JOIN Reviews as r
+WHERE r.Rating = 5;
+
+
+
+-- SELECT *
+-- FROM Products p
+-- JOIN Reviews r
+-- ON p.ProductID = r.ProductID; 
+-- need to now return the three columns.. name new then alter? easier way?
  
 /* joins: find the employee with the most total quantity sold.  use the sum() function and group by */
 SELECT SUM (Quantity) 
